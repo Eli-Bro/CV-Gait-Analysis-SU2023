@@ -8,4 +8,4 @@ The current model used consists of 33 different landmarks, with a map of the lan
 *image credit: https://www.hackersrealm.net/post/realtime-human-pose-estimation-using-python*
 
 The full documentation can be found via the link:
-***In progess***
+***In progress***
