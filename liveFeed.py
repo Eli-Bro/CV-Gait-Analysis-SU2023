@@ -1,13 +1,35 @@
 import cv2
 import mediapipe as mp
 
+"""
+Function: extract_frame_data
+This is the main section for testing with the outputs from the pose detection.
+
+To access the data use the following command (i is the index of the landmark you want)
+> pose_results.pose_landmarks.landmark[i]
+
+These landmarks have 4 pieces of data, accessed with these keys:
+
+- x: the x coordinate, calculated by percentage
+- y: the y coordinate, calculated by percentage
+- z: the z coordinate
+- visibility: the confidence score of how visible the landmark is
+"""
+def extract_frame_data(pose_results):
+    #using nose landmark for now since it is easiest
+    if pose_results.pose_landmarks is not None:
+        if pose_results.pose_landmarks.landmark[0] is not None:
+            print('x: ' + str(pose_results.pose_landmarks.landmark[0].x))
+        else:
+            print('Nose marker not visible')
+    else:
+        print('No visible landmarks')
+
+
 # initialize pose estimator
 mp_drawing = mp.solutions.drawing_utils #Purely for drawing the skeleton on the video
 mp_pose = mp.solutions.pose
 pose = mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) #Parameters for the pose detection
-
-#Iteration counter
-count = 0
 
 #Start the video stream, if an external camera is plugged in then it should use it be default
 cap = cv2.VideoCapture(0)
@@ -15,7 +37,6 @@ cap = cv2.VideoCapture(0)
 #Loops as long as the stream is active
 while cap.isOpened():
     # read frame
-    count += 1
     _, frame = cap.read()
 
     try:
@@ -30,16 +51,7 @@ while cap.isOpened():
         # draw skeleton on the frame
         mp_drawing.draw_landmarks(frame, pose_results.pose_landmarks, mp_pose.POSE_CONNECTIONS)
 
-        #Testing the pose_results info
-        print("ITERATION: " + str(count))
-        if pose_results.pose_landmarks is not None:
-            if pose_results.pose_landmarks.landmark[0] is not None:
-                print(pose_results.pose_landmarks.landmark[0].x)
-            else:
-                print('Nose marker not visible')
-        else:
-            print('No visible landmarks')
-
+        extract_frame_data(pose_results)
 
         # display the frame
         cv2.imshow('Output', frame)

@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("File:liveFeed.py","liveFeed.py");NDSummary.OnSummaryLoaded("File:liveFeed.py",[["Python","Python"]],[["Functions","Function"],["Groups","Group"]],[[2,0,1,"Functions","Functions"],[4,0,0,"extract_frame_data","extract_frame_data"]]);
