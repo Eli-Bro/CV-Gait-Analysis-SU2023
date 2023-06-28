@@ -1,1 +1,1 @@
-﻿NDMenu.OnSectionLoaded("files.js",[[1,"Camera_Extraction_Functions.py"]]);
+﻿NDMenu.OnSectionLoaded("files.js",[[1,"Camera_Extraction_Functions.py"],[1,"GUI_Functions.py"]]);

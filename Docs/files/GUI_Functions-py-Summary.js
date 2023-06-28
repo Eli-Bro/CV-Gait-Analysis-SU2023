@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("File:GUI_Functions.py","GUI_Functions.py");NDSummary.OnSummaryLoaded("File:GUI_Functions.py",[["Python","Python"]],[["Functions","Function"],["Groups","Group"]],[[3,0,1,"Functions","Functions"],[4,0,0,"initiate_cam","initiate_cam"],[5,0,0,"stop_cam","stop_cam"]]);

@@ -15,17 +15,21 @@ These landmarks have 4 pieces of data, accessed with these keys:
 - visibility: the confidence score of how visible the landmark is
 """
 def extract_frame_data(pose_results):
-    #using nose landmark for now since it is easiest
+    #Getting the hip, knee, and ankle points for each side (all info --> x,y,z,vis)
+    landmark_indexes = [24, 26, 28, 23, 25, 27]
+    frameData = []
     if pose_results.pose_landmarks is not None:
-        if pose_results.pose_landmarks.landmark[25] is not None and pose_results.pose_landmarks.landmark[26] is not None:
-            result = pose_results.pose_landmarks.landmark[25].x
-            print('x loc: ' + str(result))
-            # print('visibility: ' + str(pose_results.pose_landmarks.landmark[32].visibility))
-        else:
-            print('Nose marker not visible')
+        for ele in landmark_indexes:
+            frameData.append(pose_results.pose_landmarks.landmark[ele].x)
+            frameData.append(pose_results.pose_landmarks.landmark[ele].y)
+            frameData.append(pose_results.pose_landmarks.landmark[ele].z)
+            frameData.append(pose_results.pose_landmarks.landmark[ele].visibility)
+        # print(frameData)
+        print(pose_results.pose_landmarks.landmark[26].visibility)
     else:
         print('No visible landmarks')
-    return result
+        frameData = None
+    return frameData
 
 def display_fps(frame, data, newFrameTime, prevFrameTime):
     fps = 1 / (newFrameTime - prevFrameTime)

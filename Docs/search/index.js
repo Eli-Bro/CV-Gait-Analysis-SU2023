@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixIndexLoaded(["ext"]);
+﻿NDSearch.OnPrefixIndexLoaded(["ext","ini","sto"]);
