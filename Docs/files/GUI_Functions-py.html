@@ -12,16 +12,34 @@
  <div class="CTitle">Functions</div>
 </div>
 
-<a name="initiate_cam"></a><a name="Topic4"></a><div class="CTopic TFunction LPython">
+<a name="initiate_cam"></a><a name="Topic2"></a><div class="CTopic TFunction LPython">
  <div class="CTitle">initiate_cam</div>
- <div id="NDPrototype4" class="NDPrototype WideForm"><div class="PSection PParameterSection CStyle"><table><tr><td class="PBeforeParameters"><span class="SHKeyword">def</span> initiate_cam(</td><td class="PParametersParentCell"><table class="PParameters"><tr><td class="PName first last">pose,</td></tr><tr><td class="PName first last">mp_pose,</td></tr><tr><td class="PName first last">mp_drawing,</td></tr><tr><td class="PName first last">placeholder_img</td></tr></table></td><td class="PAfterParameters">)</td></tr></table></div></div>
+ <div id="NDPrototype2" class="NDPrototype WideForm"><div class="PSection PParameterSection CStyle"><table><tr><td class="PBeforeParameters"><span class="SHKeyword">def</span> initiate_cam(</td><td class="PParametersParentCell"><table class="PParameters"><tr><td class="PName first last">placeholder_img</td></tr></table></td><td class="PAfterParameters">)</td></tr></table></div></div>
  <div class="CBody"><p>The central driver of the overall program, this function handles starting the video feed and has several calls to processing functions within it. A recording of numerical data can only begin once the camera has been initialized.</p></div>
 </div>
 
-<a name="stop_cam"></a><a name="Topic5"></a><div class="CTopic TFunction LPython last">
+<a name="stop_cam"></a><a name="Topic5"></a><div class="CTopic TFunction LPython">
  <div class="CTitle">stop_cam</div>
  <div id="NDPrototype5" class="NDPrototype"><div class="PSection PPlainSection"><span class="SHKeyword">def</span> stop_cam()</div></div>
  <div class="CBody"><p>Stops the active camera feed.</p></div>
+</div>
+
+<a name="initialize_pose_estimator"></a><a name="Topic7"></a><div class="CTopic TFunction LPython">
+ <div class="CTitle">initialize_pose_estimator</div>
+ <div id="NDPrototype7" class="NDPrototype"><div class="PSection PPlainSection"><span class="SHKeyword">def</span> initialize_pose_estimator()</div></div>
+ <div class="CBody"><p>Creates the tools needed to enact pose estimation via MediaPipe, including drawing utils and parameters for detection confidence (default is 0.5 for all minimum values).&nbsp; === - model complexity: the specific prebuilt model used in the estimation process, in which: 0 = light (fast, lower accuracy) 1 = full (medium) 2 = heavy (slow, higher accuracy) ===</p></div>
+</div>
+
+<a name="start_recording"></a><a name="Topic8"></a><div class="CTopic TFunction LPython">
+ <div class="CTitle">start_recording</div>
+ <div id="NDPrototype8" class="NDPrototype"><div class="PSection PPlainSection"><span class="SHKeyword">def</span> start_recording()</div></div>
+ <div class="CBody"><p>Initiates the recording process, and sets the beginning time to 0 for the current recording.</p></div>
+</div>
+
+<a name="stop_recording"></a><a name="Topic9"></a><div class="CTopic TFunction LPython last">
+ <div class="CTitle">stop_recording</div>
+ <div id="NDPrototype9" class="NDPrototype"><div class="PSection PPlainSection"><span class="SHKeyword">def</span> stop_recording()</div></div>
+ <div class="CBody"><p>Ends the current recording.</p></div>
 </div>
 
 </body></html>

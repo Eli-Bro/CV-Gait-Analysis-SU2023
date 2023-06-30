@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixDataLoaded("ini",["Function"],[["initiate_cam",,[[,,,,0,"File:GUI_Functions.py:initiate_cam"]]]]);
+﻿NDSearch.OnPrefixDataLoaded("ini",["Function"],[["initialize_pose_estimator",,[[,,,,0,"File:GUI_Functions.py:initialize_pose_estimator"]]],["initiate_cam",,[[,,,,0,"File:GUI_Functions.py:initiate_cam"]]]]);

@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixDataLoaded("sto",["Function"],[["stop_cam",,[[,,,,0,"File:GUI_Functions.py:stop_cam"]]]]);
+﻿NDSearch.OnPrefixDataLoaded("sto",["Function"],[["stop_cam",,[[,,,,0,"File:GUI_Functions.py:stop_cam"]]],["stop_recording",,[[,,,,0,"File:GUI_Functions.py:stop_recording"]]]]);
