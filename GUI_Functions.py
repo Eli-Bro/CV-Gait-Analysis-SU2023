@@ -5,12 +5,14 @@ import time
 import mediapipe as mp
 from GUI_Visual_Resources import *
 import tkinter as tk
+import os
 
 global cam
 global recordFlag
 global startTime
 global filename
 global landmarks
+global out
 
 #Camera feed functions
 '''
@@ -29,6 +31,7 @@ def initiate_cam(placeholder_img):
     cam = cv2.VideoCapture(0)
     prevFrameTime = 0
     count = 0
+
     while cam.isOpened():
         ret, frame = cam.read()
 
@@ -47,6 +50,11 @@ def initiate_cam(placeholder_img):
             if recordFlag:
                 result = cef.extract_frame_data(pose_results, newFrameTime - startTime, landmarks)
                 cef.record_data(filename, result, landmarks)
+                #===
+                frameSave = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+                out.write(frameSave)
+
+                #===
                 frame = indicate_recording(frame, count)
                 count += 1
 
@@ -60,6 +68,9 @@ def initiate_cam(placeholder_img):
             placeholder_img.configure(image=img_update)
             placeholder_img.image = img_update
             placeholder_img.update()
+
+            #TODO: Used for testing
+            print(pose_results.pose_world_landmarks.landmark[0].y)
 
         except Exception as e:
             print(e)
@@ -107,6 +118,7 @@ Initiates the recording process, and sets the beginning time to 0 for the curren
 def start_recording(entryFile, landmarkList):
     global recordFlag
     global startTime
+    global out
     startTime = time.time()
     if entryFile == '':
         #TODO: print to some log on the GUI
@@ -118,6 +130,11 @@ def start_recording(entryFile, landmarkList):
         recordFlag = True
         global landmarks
         landmarks = landmarkList
+
+        # Set up video recording variables
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        videoName = os.path.splitext(filename)[0] + '.avi'
+        out = cv2.VideoWriter(videoName, fourcc, 16.0, (640, 480))
 
 
 '''

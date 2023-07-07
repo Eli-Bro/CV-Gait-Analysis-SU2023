@@ -50,7 +50,7 @@ recordControlFrame.config(padx=5, pady=5)
 
 # Filename textbox
 filenameEntry = tk.Entry(recordControlFrame, bg=textboxColor)
-filenameEntry.grid(row=1, column=0, columnspan=3, padx=10, pady=10)
+filenameEntry.grid(row=1, column=0, columnspan=2, padx=10, pady=10)
 
 # Start button
 startRecordButton = tk.Button(recordControlFrame,
@@ -58,7 +58,7 @@ startRecordButton = tk.Button(recordControlFrame,
                               bg=startButtonColor,
                               command=lambda: gui.start_recording(filenameEntry.get(), landmarks),
                               height=btnHeight, width=btnWidth)
-startRecordButton.grid(row=0, column=1)
+startRecordButton.grid(row=0, column=0, sticky='e')
 
 # Stop button
 stopRecordButton = tk.Button(recordControlFrame,
@@ -66,11 +66,11 @@ stopRecordButton = tk.Button(recordControlFrame,
                              bg=stopButtonColor,
                              command=gui.stop_recording,
                              height=btnHeight, width=btnWidth)
-stopRecordButton.grid(row=0, column=2)
+stopRecordButton.grid(row=0, column=1, sticky='w')
 
 # Landmark Label Frame
 landmarkFrame = tk.LabelFrame(recordControlFrame, text='Landmarks')
-landmarkFrame.grid(row=2, column=0, columnspan=3)
+landmarkFrame.grid(row=2, column=0, columnspan=2)
 landmarkFrame.config(padx=5, pady=5)
 
 # Right frame

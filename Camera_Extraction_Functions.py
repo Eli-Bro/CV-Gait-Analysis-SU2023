@@ -23,10 +23,11 @@ def extract_frame_data(pose_results, frameTime, landmarkList):
     if pose_results.pose_landmarks is not None:
         for ele in landmarkList:
             if ele.get() != -1:
-                frameData.append(pose_results.pose_landmarks.landmark[ele.get()].x)
-                frameData.append(pose_results.pose_landmarks.landmark[ele.get()].y)
-                frameData.append(pose_results.pose_landmarks.landmark[ele.get()].z)
-                frameData.append(pose_results.pose_landmarks.landmark[ele.get()].visibility)
+                #TODO: Can change between pose_landmarks and pose_world_landmarks
+                frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].x)
+                frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].y)
+                frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].z)
+                frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].visibility)
     else:
         print('No visible landmarks')
         frameData = None
