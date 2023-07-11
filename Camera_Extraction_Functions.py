@@ -17,7 +17,7 @@ These landmarks have 4 pieces of data, accessed with these keys:
 - z: the z coordinate
 - visibility: the confidence score of how visible the landmark is
 """
-def extract_frame_data(pose_results, frameTime, worldMode, landmarkList=None):
+def extract_frame_data(pose_results, frameTime, worldMode=True, landmarkList=None):
     if landmarkList is None:
         landmarkList = []
 
