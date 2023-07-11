@@ -12,14 +12,15 @@
  <div class="CTitle">Functions</div>
 </div>
 
-<a name="extract_frame_data"></a><a name="Topic4"></a><div class="CTopic TFunction LPython">
+<a name="extract_frame_data"></a><a name="Topic6"></a><div class="CTopic TFunction LPython">
  <div class="CTitle">extract_frame_data</div>
- <div id="NDPrototype4" class="NDPrototype WideForm"><div class="PSection PParameterSection CStyle"><table><tr><td class="PBeforeParameters"><span class="SHKeyword">def</span> extract_frame_data(</td><td class="PParametersParentCell"><table class="PParameters"><tr><td class="PName first last">pose_results,</td></tr><tr><td class="PName first last">frameTime</td></tr></table></td><td class="PAfterParameters">)</td></tr></table></div></div>
+ <div id="NDPrototype6" class="NDPrototype WideForm"><div class="PSection PParameterSection CStyle"><table><tr><td class="PBeforeParameters"><span class="SHKeyword">def</span> extract_frame_data(</td><td class="PParametersParentCell"><table class="PParameters"><tr><td class="PName first last">pose_results,</td></tr><tr><td class="PName first last">frameTime,</td></tr><tr><td class="PName first last">landmarkList</td></tr></table></td><td class="PAfterParameters">)</td></tr></table></div></div>
  <div class="CBody"><p>This is the main section for testing with the outputs from the pose detection.</p><p>To access the data use the following command (i is the index of the landmark you want) &gt;&gt;&gt; pose_results.pose_landmarks.landmark[i]</p><p>These landmarks have 4 pieces of data, accessed with these keys:</p><ul><li><p>x: the x coordinate, calculated by percentage</p></li><li><p>y: the y coordinate, calculated by percentage</p></li><li><p>z: the z coordinate</p></li><li><p>visibility: the confidence score of how visible the landmark is</p></li></ul></div>
 </div>
 
-<a name="record_data"></a><a name="Topic10"></a><div class="CTopic TFunction LPython">
+<a name="record_data"></a><a name="Topic12"></a><div class="CTopic TFunction LPython">
  <div class="CTitle">record_data</div>
+ <div id="NDPrototype12" class="NDPrototype WideForm"><div class="PSection PParameterSection CStyle"><table><tr><td class="PBeforeParameters"><span class="SHKeyword">def</span> record_data(</td><td class="PParametersParentCell"><table class="PParameters"><tr><td class="PName first last">filename,</td></tr><tr><td class="PName first last">data,</td></tr><tr><td class="PName first last">landmarkList</td></tr></table></td><td class="PAfterParameters">)</td></tr></table></div></div>
  <div class="CBody"><p>Takes in a list of data and writes it to a row of a csv file with a predefined name obtained via the GUI.</p></div>
 </div>
 

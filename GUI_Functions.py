@@ -13,6 +13,7 @@ global startTime
 global filename
 global landmarks
 global out
+global worldMode
 
 #Camera feed functions
 '''
@@ -28,6 +29,9 @@ def initiate_cam(placeholder_img):
     recordFlag = False
     global startTime
     pose, mp_pose, mp_drawing = initialize_pose_estimator()
+    global worldMode
+    worldMode = False
+
     cam = cv2.VideoCapture(0)
     prevFrameTime = 0
     count = 0
@@ -48,7 +52,7 @@ def initiate_cam(placeholder_img):
 
             # Record if necessary
             if recordFlag:
-                result = cef.extract_frame_data(pose_results, newFrameTime - startTime, landmarks)
+                result = cef.extract_frame_data(pose_results, newFrameTime - startTime, worldMode, landmarks)
                 cef.record_data(filename, result, landmarks)
                 #===
                 frameSave = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
@@ -170,3 +174,21 @@ def create_checkboxes(labelFrame, name, var, rowNum):
                               state='active')
     checkBtn.grid(row=rowNum, column=0, sticky='w')
     checkBtn.select()
+
+
+'''
+Function: record_mode
+Controls if the landmarks recorded are in the world coordinate mode or default mode,
+with default mode being the one selected at initialization. The switch can only be triggered
+once the camera has been initiated.
+'''
+def record_mode(toggle, worldPic, defPic):
+    global worldMode
+    if worldMode:
+        worldMode = False
+        toggle.config(image=defPic)
+    else:
+        worldMode = True
+        toggle.config(image=worldPic)
+
+

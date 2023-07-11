@@ -17,17 +17,26 @@ These landmarks have 4 pieces of data, accessed with these keys:
 - z: the z coordinate
 - visibility: the confidence score of how visible the landmark is
 """
-def extract_frame_data(pose_results, frameTime, landmarkList):
+def extract_frame_data(pose_results, frameTime, worldMode, landmarkList=None):
+    if landmarkList is None:
+        landmarkList = []
+
     #Getting the hip, knee, and ankle points for each side (all info --> x,y,z,vis)
     frameData = [frameTime]
     if pose_results.pose_landmarks is not None:
         for ele in landmarkList:
             if ele.get() != -1:
                 #TODO: Can change between pose_landmarks and pose_world_landmarks
-                frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].x)
-                frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].y)
-                frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].z)
-                frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].visibility)
+                if worldMode:
+                    frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].x)
+                    frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].y)
+                    frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].z)
+                    frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].visibility)
+                else:
+                    frameData.append(pose_results.pose_landmarks.landmark[ele.get()].x)
+                    frameData.append(pose_results.pose_landmarks.landmark[ele.get()].y)
+                    frameData.append(pose_results.pose_landmarks.landmark[ele.get()].z)
+                    frameData.append(pose_results.pose_landmarks.landmark[ele.get()].visibility)
     else:
         print('No visible landmarks')
         frameData = None

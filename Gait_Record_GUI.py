@@ -107,4 +107,22 @@ logText = tk.StringVar()
 logEntry = tk.Entry(logFrame, textvariable=logText, bg=textboxColor, state='disabled')
 logEntry.grid(row=0, column=0)
 
+# Landmark toggle
+rawWorld = Image.open('button blue.png')
+rawDefault = Image.open('button gray.png')
+resizeWorld = rawWorld.resize((70, 40))
+resizeDefault = rawDefault.resize((70, 40))
+
+world = ImageTk.PhotoImage(resizeWorld)
+default = ImageTk.PhotoImage(resizeDefault)
+
+toggle = tk.Button(recordControlFrame, image=default, bd=0, command=lambda: gui.record_mode(toggle, world, default))
+toggle.grid(row=4, column=0, columnspan=2)
+
+defaultModeLabel = tk.Label(recordControlFrame, text='Default')
+defaultModeLabel.grid(row=3, column=0)
+
+worldModeLabel = tk.Label(recordControlFrame, text='World')
+worldModeLabel.grid(row=3, column=1)
+
 win.mainloop()
