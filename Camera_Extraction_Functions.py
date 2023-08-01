@@ -26,7 +26,6 @@ def extract_frame_data(pose_results, frameTime, worldMode=True, landmarkList=Non
     if pose_results.pose_landmarks is not None:
         for ele in landmarkList:
             if ele.get() != -1:
-                #TODO: Can change between pose_landmarks and pose_world_landmarks
                 if worldMode:
                     frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].x)
                     frameData.append(pose_results.pose_world_landmarks.landmark[ele.get()].y)

@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixDataLoaded("rec",["Function"],[["record_data",,[[,,,,0,"File:Camera_Extraction_Functions.py:record_data"]]]]);
+﻿NDSearch.OnPrefixDataLoaded("rec",["Function"],[["record_data",,[[,,,,0,"File:Camera_Extraction_Functions.py:record_data"]]],["record_mode",,[[,,,,0,"File:GUI_Functions.py:record_mode"]]]]);

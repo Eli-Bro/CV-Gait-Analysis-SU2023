@@ -74,7 +74,13 @@ def initiate_cam(placeholder_img):
             placeholder_img.update()
 
             #TODO: Used for testing
-            print(pose_results.pose_world_landmarks.landmark[0].y)
+            if worldMode:
+                print('X: ' + str(pose_results.pose_world_landmarks.landmark[0].x))
+                print('Y: ' + str(pose_results.pose_world_landmarks.landmark[0].y))
+            else:
+                print('X: ' + str(pose_results.pose_landmarks.landmark[0].x))
+                print('Y: ' + str(pose_results.pose_landmarks.landmark[0].y))
+
 
         except Exception as e:
             print(e)
