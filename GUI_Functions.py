@@ -5,6 +5,7 @@ import time
 import mediapipe as mp
 from GUI_Visual_Resources import *
 import tkinter as tk
+from tkinter import messagebox
 import os
 
 global cam
@@ -132,7 +133,7 @@ def start_recording(entryFile, landmarkList):
     startTime = time.time()
     if entryFile == '':
         #TODO: print to some log on the GUI
-        print('no')
+        messagebox.showwarning('Invalid File', 'Please provide a valid file name for the output location.')
         recordFlag = False
     else:
         global filename

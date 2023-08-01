@@ -48,8 +48,8 @@ Takes in a list of data and writes it to a row of a csv file with a predefined n
 via the GUI.
 '''
 def record_data(filename, data, landmarkList):
-    if not os.path.isfile(filename):
-        file = open(filename, 'w', newline='')
+    if not os.path.isfile(os.path.splitext(filename)[0] + '.csv'):
+        file = open(os.path.splitext(filename)[0] + '.csv', 'w', newline='')
         with file:
             landmarkHeaders = { rHipIdx: 'Right Hip', rKneeIdx: 'Right Knee', rAnkleIdx: 'Right Ankle',
                                 rHeelIdx: 'Right Heel', rFootIdx: 'Right Foot',
@@ -67,7 +67,7 @@ def record_data(filename, data, landmarkList):
             writer.writerow(finalHeaders)
             writer.writerow(data)
     else:
-        file = open(filename, 'a', newline='')
+        file = open(os.path.splitext(filename)[0] + '.csv', 'a', newline='')
         with file:
             writer = csv.writer(file)
             writer.writerow(data)
