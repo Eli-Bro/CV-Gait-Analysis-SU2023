@@ -116,7 +116,7 @@ resizeDefault = rawDefault.resize((70, 40))
 world = ImageTk.PhotoImage(resizeWorld)
 default = ImageTk.PhotoImage(resizeDefault)
 
-toggle = tk.Button(recordControlFrame, image=default, bd=0, command=lambda: gui.record_mode(toggle, world, default))
+toggle = tk.Button(recordControlFrame, image=world, bd=0, command=lambda: gui.record_mode(toggle, world, default))
 toggle.grid(row=4, column=0, columnspan=2)
 
 defaultModeLabel = tk.Label(recordControlFrame, text='Default')

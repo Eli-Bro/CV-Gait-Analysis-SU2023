@@ -31,7 +31,7 @@ def initiate_cam(placeholder_img):
     global startTime
     pose, mp_pose, mp_drawing = initialize_pose_estimator()
     global worldMode
-    worldMode = False
+    worldMode = True
 
     cam = cv2.VideoCapture(0)
     prevFrameTime = 0
