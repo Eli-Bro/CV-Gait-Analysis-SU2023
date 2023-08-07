@@ -15,6 +15,7 @@ global filename
 global landmarks
 global out
 global worldMode
+global frameCap
 
 #Camera feed functions
 '''
@@ -32,10 +33,20 @@ def initiate_cam(placeholder_img):
     pose, mp_pose, mp_drawing = initialize_pose_estimator()
     global worldMode
     worldMode = True
+    global frameCap
+    frameCap = True
 
     cam = cv2.VideoCapture(0)
     prevFrameTime = 0
     count = 0
+
+    # TODO: Specific frequency set up
+    # Set your desired frequency here (in Hz)
+    frequency = 5.0  # Run 10 times per second (every 0.1 seconds)
+    # Calculate delay from frequency
+    delay = 1.0 / frequency
+    # Time reference
+    start_time = time.time()
 
     while cam.isOpened():
         ret, frame = cam.read()
@@ -82,6 +93,10 @@ def initiate_cam(placeholder_img):
                 print('X: ' + str(pose_results.pose_landmarks.landmark[0].x))
                 print('Y: ' + str(pose_results.pose_landmarks.landmark[0].y))
 
+            if frameCap:
+                # Compensate for the time that the codes took to run
+                loop_duration = time.time() - start_time
+                time.sleep(delay - loop_duration % delay)
 
         except Exception as e:
             print(e)
@@ -199,3 +214,16 @@ def record_mode(toggle, worldPic, defPic):
         toggle.config(image=worldPic)
 
 
+'''
+Function: toggle_frame_cap
+Controls if the camera is capped at the specific amount of frames during recording,
+primarily for keeping the same frequency of data for the machine learning model.
+'''
+def toggle_frame_cap(toggle, capPic, unlimPic):
+    global frameCap
+    if frameCap:
+        frameCap = False
+        toggle.config(image=unlimPic)
+    else:
+        frameCap = True
+        toggle.config(image=capPic)

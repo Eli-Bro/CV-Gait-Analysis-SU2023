@@ -125,4 +125,14 @@ defaultModeLabel.grid(row=3, column=0)
 worldModeLabel = tk.Label(recordControlFrame, text='World')
 worldModeLabel.grid(row=3, column=1)
 
+# Frame Cap Toggle
+frameToggle = tk.Button(recordControlFrame, image=world, bd=0, command=lambda: gui.toggle_frame_cap(frameToggle, world, default))
+frameToggle.grid(row=6, column=0, columnspan=2)
+
+unlimModeLabel = tk.Label(recordControlFrame, text='Unlimited')
+unlimModeLabel.grid(row=5, column=0)
+
+capModeLabel = tk.Label(recordControlFrame, text='Capped')
+capModeLabel.grid(row=5, column=1)
+
 win.mainloop()
