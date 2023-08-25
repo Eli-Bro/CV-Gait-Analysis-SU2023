@@ -49,7 +49,7 @@ Essentially, the general workflow of the program will be as follows:
 ### Program Output
 The final output from a recording session of CVGAP is:
 1. An avi file of the session with the MediaPipe landmarks present.
-2. A csv containing the ```x```, ```y```, ```z``` coordinates of the selected landmarks as well as the visibility score of each landmark.
+2. A csv containing the ```x```, ```y```, ```z``` coordinates of the selected landmarks as well as the ```visibility``` score of each landmark.
     - The first column in the csv will be the timestamp.
 
 ## MediaPipe Human Pose Estimation
