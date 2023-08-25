@@ -1,9 +1,12 @@
-# Computer Vision Gait Analysis Program (CVGAP)
+# Computer Vision Gait Recording Program (CVGRP)
 
-- [Computer Vision Gait Analysis Program (CVGAP)](#computer-vision-gait-analysis-program-cvgap)
+
+- [Computer Vision Gait Recording Program (CVGRP)](#computer-vision-gait-recording-program-cvgrp)
   - [Description](#description)
   - [Set Up](#set-up)
   - [Overview](#overview)
+    - [How to Use](#how-to-use)
+    - [Program Output](#program-output)
   - [MediaPipe Human Pose Estimation](#mediapipe-human-pose-estimation)
     - [What is MediaPipe?](#what-is-mediapipe)
     - [What is the output?](#what-is-the-output)
@@ -17,7 +20,13 @@ This application is built for the purpose of measuring human gait parameters via
 - Download the code via a zip file or cloning the repo using version control.
 - Once on the local computer, open the project in an IDE (mainly used with [Spyder](https://www.spyder-ide.org/) or [Pycharm Community](https://www.jetbrains.com/pycharm/download/?section=windows))
 - Install the required packages by entering the following line in the terminal
-    >pip install -r requirements.txt
+  ```python console
+  pip install -r requirements.txt
+  ```
+- If there issues with the pip installation, such as the **access denied** message, try the following command then reset the terminal
+  ```python console
+  pip install --upgrade pip --user
+  ```
 - Once the packages are installed, there should be no active compiler errors, and the program will run
 - Plug in the external camera, if your system has an internal camera it may use that by default instead
     - The line to change which camera is used is located in [GUI_Functions.py](https://github.com/Eli-Bro/CV-Gait-Analysis-SU2023/blob/master/GUI_Functions.py)
@@ -27,6 +36,21 @@ This application is built for the purpose of measuring human gait parameters via
       ```
 
 ## Overview
+### How to Use
+To learn more about how to use the program's front panel, visit the visual guide provided [here](https://github.com/Eli-Bro/CVGAP/blob/master/CVGAP_frontPanel_Doc.pdf).
+
+Essentially, the general workflow of the program will be as follows:
+1. Run the [Gait_Record_GUI.py](https://github.com/Eli-Bro/CV-Gait-Analysis-SU2023/blob/master/Gait_Record_GUI.py) file to start the front panel.
+2. Start the camera feed.
+3. Assign an output file name.
+4. Choose which landmarks to record via the checkboxes.
+5. Begin recording, upon stopping the video and csv file will be saved .
+
+### Program Output
+The final output from a recording session of CVGAP is:
+1. An avi file of the session with the MediaPipe landmarks present.
+2. A csv containing the ```x```, ```y```, ```z``` coordinates of the selected landmarks as well as the visibility score of each landmark.
+    - The first column in the csv will be the timestamp.
 
 ## MediaPipe Human Pose Estimation
 ### What is MediaPipe?
