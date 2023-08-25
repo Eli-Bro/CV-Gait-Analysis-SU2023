@@ -37,17 +37,15 @@ This application is built for the purpose of measuring human gait parameters via
 
 ## Overview
 ### How to Use
-To learn more about how to use the program's front panel, visit the visual guide provided [here](https://github.com/Eli-Bro/CVGAP/blob/master/CVGAP_frontPanel_Doc.pdf).
-
 Essentially, the general workflow of the program will be as follows:
 1. Run the [Gait_Record_GUI.py](https://github.com/Eli-Bro/CV-Gait-Analysis-SU2023/blob/master/Gait_Record_GUI.py) file to start the front panel.
 2. Start the camera feed.
 3. Assign an output file name.
 4. Choose which landmarks to record via the checkboxes.
-5. Begin recording, upon stopping the video and csv file will be saved .
+5. Begin recording, upon stopping the video and csv file will be saved under the working directory.
 
 ### Program Output
-The final output from a recording session of CVGAP is:
+The final output from a recording session of CVGRP is:
 1. An avi file of the session with the MediaPipe landmarks present.
 2. A csv containing the ```x```, ```y```, ```z``` coordinates of the selected landmarks as well as the ```visibility``` score of each landmark.
     - The first column in the csv will be the timestamp.
