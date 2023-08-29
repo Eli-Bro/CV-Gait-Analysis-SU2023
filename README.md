@@ -75,7 +75,7 @@ def initialize_pose_estimator():
 
 ### What is the output?
 MediaPipe uses a system of 33 body landmarks ordered in the picture below. 
-![landmark_map](https://github.com/Eli-Bro/CV-Gait-Analysis-SU2023/assets/78119596/b3658576-ff2e-4405-a896-31fda46dbaad)
+![landmark_map](https://github.com/Eli-Bro/CV-Gait-Analysis-SU2023/assets/78119596/9afd87d4-9566-4b3f-a360-752a07b815e9)
 *image credit: https://www.hackersrealm.net/post/realtime-human-pose-estimation-using-python*
 
 These landmarks house 4 different pieces of information:
