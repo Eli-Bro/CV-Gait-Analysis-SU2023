@@ -42,7 +42,7 @@ def initiate_cam(placeholder_img):
 
     # TODO: Specific frequency set up
     # Set your desired frequency here (in Hz)
-    frequency = 5.0  # Run 10 times per second (every 0.1 seconds)
+    frequency = 10.0  # Run 10 times per second (every 0.1 seconds)
     # Calculate delay from frequency
     delay = 1.0 / frequency
     # Time reference
